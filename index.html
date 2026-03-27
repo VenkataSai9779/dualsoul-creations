@@ -12,7 +12,7 @@
     <meta property="og:title" content="DualSoul Creations | Dance Collective">
     <meta property="og:description" content="Watch our latest dance performances and join our journey!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://[your-username].github.io/dualsoul-creations">
+    <meta property="og:url" content="https://venkatasai9779.github.io/dualsoul-creations">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,11 +27,35 @@
             box-sizing: border-box;
         }
 
+        /* Dark/Light Mode Variables */
+        :root {
+            --bg-primary: #0a0808;
+            --bg-secondary: #1a1410;
+            --text-primary: #f5e6d3;
+            --text-secondary: #c9a03d;
+            --card-bg: rgba(201, 160, 61, 0.05);
+            --border-color: rgba(201, 160, 61, 0.3);
+            --navbar-bg: rgba(10, 8, 8, 0.95);
+            --footer-bg: #050404;
+        }
+
+        body.light-mode {
+            --bg-primary: #fef9f0;
+            --bg-secondary: #fff5e6;
+            --text-primary: #2c2418;
+            --text-secondary: #b8860b;
+            --card-bg: rgba(184, 134, 11, 0.05);
+            --border-color: rgba(184, 134, 11, 0.2);
+            --navbar-bg: rgba(254, 249, 240, 0.95);
+            --footer-bg: #f5ede0;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0a0808;
-            color: #f5e6d3;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         /* Custom Scrollbar */
@@ -40,11 +64,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #1a1410;
+            background: var(--bg-secondary);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #c9a03d;
+            background: var(--text-secondary);
             border-radius: 5px;
         }
 
@@ -58,16 +82,15 @@
             top: 0;
             width: 100%;
             padding: 1.5rem 5%;
-            background: rgba(10, 8, 8, 0.95);
+            background: var(--navbar-bg);
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(201, 160, 61, 0.3);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .navbar.scrolled {
             padding: 1rem 5%;
-            background: rgba(10, 8, 8, 0.98);
         }
 
         .nav-container {
@@ -82,13 +105,13 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: #c9a03d;
+            color: var(--text-secondary);
             text-decoration: none;
             letter-spacing: 2px;
         }
 
         .logo span {
-            color: #f5e6d3;
+            color: var(--text-primary);
         }
 
         .nav-links {
@@ -98,7 +121,7 @@
         }
 
         .nav-links a {
-            color: #f5e6d3;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -106,24 +129,30 @@
         }
 
         .nav-links a:hover {
-            color: #c9a03d;
+            color: var(--text-secondary);
         }
 
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--text-primary);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(10, 8, 8, 0.9), rgba(26, 20, 16, 0.95)), url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=1600') center/cover;
+            background: linear-gradient(135deg, rgba(10, 8, 8, 0.85), rgba(26, 20, 16, 0.9)), url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=1600') center/cover;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
+        }
+
+        body.light-mode .hero {
+            background: linear-gradient(135deg, rgba(254, 249, 240, 0.85), rgba(245, 230, 211, 0.9)), url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=1600') center/cover;
         }
 
         .hero-content {
@@ -151,7 +180,7 @@
         }
 
         .hero-content h1 span {
-            color: #c9a03d;
+            color: var(--text-secondary);
         }
 
         .hero-content p {
@@ -163,18 +192,18 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: #c9a03d;
-            color: #0a0808;
+            background: var(--text-secondary);
+            color: var(--bg-primary);
             text-decoration: none;
             font-weight: 600;
             border-radius: 50px;
             transition: all 0.3s ease;
-            border: 2px solid #c9a03d;
+            border: 2px solid var(--text-secondary);
         }
 
         .cta-button:hover {
             background: transparent;
-            color: #c9a03d;
+            color: var(--text-secondary);
             transform: translateY(-2px);
         }
 
@@ -202,7 +231,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: #c9a03d;
+            background: var(--text-secondary);
         }
 
         /* About Section */
@@ -219,7 +248,7 @@
         }
 
         .about-text .highlight {
-            color: #c9a03d;
+            color: var(--text-secondary);
             font-weight: 600;
         }
 
@@ -233,7 +262,7 @@
         .team-card {
             text-align: center;
             padding: 2rem;
-            background: rgba(201, 160, 61, 0.05);
+            background: var(--card-bg);
             border-radius: 15px;
             transition: transform 0.3s ease;
         }
@@ -244,7 +273,7 @@
 
         .team-icon {
             font-size: 3rem;
-            color: #c9a03d;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
         }
 
@@ -253,63 +282,84 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Counter Section */
+        .counter-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .counter-item {
+            padding: 1rem;
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Parallax Section */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            background-image: linear-gradient(135deg, rgba(10, 8, 8, 0.85), rgba(26, 20, 16, 0.9)), url('https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=1600');
+            margin: 3rem 0;
+        }
+
+        body.light-mode .parallax-section {
+            background-image: linear-gradient(135deg, rgba(254, 249, 240, 0.85), rgba(245, 230, 211, 0.9)), url('https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=1600');
+        }
+
+        .parallax-content {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .parallax-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .parallax-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* Instagram Feed */
         .instagram-feed {
-            background: rgba(201, 160, 61, 0.03);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 2rem;
         }
 
-        .elfsight-app-iframe {
-            width: 100%;
-            min-height: 600px;
-            border: none;
-        }
-
-        /* Featured s */
-        .reels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .reel-card {
-            position: relative;
-            border-radius: 15px;
+        /* Featured Performance */
+        .featured-video {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 20px;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .reel-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .reel-card img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .reel-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 2rem 1rem 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .reel-card:hover .reel-overlay {
-            transform: translateY(0);
-        }
-
-        .reel-overlay i {
-            color: #c9a03d;
-            margin-right: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         /* Contact Section */
@@ -330,7 +380,7 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: rgba(201, 160, 61, 0.05);
+            background: var(--card-bg);
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -342,7 +392,7 @@
 
         .contact-item i {
             font-size: 1.5rem;
-            color: #c9a03d;
+            color: var(--text-secondary);
         }
 
         .social-links {
@@ -357,25 +407,48 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: rgba(201, 160, 61, 0.1);
+            background: var(--card-bg);
             border-radius: 50%;
-            color: #c9a03d;
+            color: var(--text-secondary);
             font-size: 1.5rem;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background: #c9a03d;
-            color: #0a0808;
+            background: var(--text-secondary);
+            color: var(--bg-primary);
             transform: translateY(-3px);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 2rem;
-            background: #050404;
-            border-top: 1px solid rgba(201, 160, 61, 0.2);
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border-color);
         }
 
         /* Responsive */
@@ -401,8 +474,16 @@
                 grid-template-columns: 1fr;
             }
             
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .section {
                 padding: 3rem 1.5rem;
+            }
+            
+            .parallax-content h2 {
+                font-size: 1.8rem;
             }
         }
         
@@ -413,40 +494,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0a0808;
+            background: var(--bg-primary);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         
         .loader.hide {
             opacity: 0;
-            pointer-events: none;
+            visibility: hidden;
         }
         
         .loader-content {
             text-align: center;
         }
         
-        .loader-content i {
-            font-size: 3rem;
-            color: #c9a03d;
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(201, 160, 61, 0.2);
+            border-top: 4px solid var(--text-secondary);
+            border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
         
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+        
+        .loader-content p {
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Animation -->
     <div class="loader" id="loader">
         <div class="loader-content">
-            <i class="fas fa-spinner"></i>
-            <p style="margin-top: 1rem;">Loading DualSoul Experience...</p>
+            <div class="loader-spinner"></div>
+            <p>DualSoul Loading...</p>
         </div>
     </div>
     
@@ -456,7 +547,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#reels">Reels</a></li>
+                <li><a href="#reels">Performance</a></li>
                 <li><a href="#instagram">Instagram</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -505,29 +596,61 @@
         </div>
     </section>
     
+    <!-- Animated Counters Section -->
+    <section class="section">
+        <div class="counter-section">
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-number" id="counter1">0</div>
+                    <div class="counter-label">Instagram Followers</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" id="counter2">0</div>
+                    <div class="counter-label">Video Views</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" id="counter3">0</div>
+                    <div class="counter-label">Total Reels</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" id="counter4">0</div>
+                    <div class="counter-label">Happy Followers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="reels" class="section">
-    <h2 class="section-title">Featured Performance</h2>
-    <div style="max-width: 1000px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-            <iframe 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                src="https://www.youtube.com/embed/rsBKo2IZVcs" 
-                title="DualSoul Creations - Featured Performance"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen>
-            </iframe>
+        <h2 class="section-title">Featured Performance</h2>
+        <div class="featured-video">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="https://www.youtube.com/embed/rsBKo2IZVcs" 
+                    title="DualSoul Creations - Featured Performance"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Parallax Section -->
+    <div class="parallax-section">
+        <div class="parallax-content">
+            <h2>Dance is the Hidden Language of the Soul</h2>
+            <p>Every movement tells a story. Every performance is a piece of our heart.</p>
         </div>
     </div>
-</section>
     
     <section id="instagram" class="section">
         <h2 class="section-title">Follow Our Journey</h2>
         <div class="instagram-feed">
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-1d48a2de-5329-43cf-877f-534e2dfc5d80" data-elfsight-app-lazy></div>
-</div>
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-1d48a2de-5329-43cf-877f-534e2dfc5d80" data-elfsight-app-lazy></div>
+        </div>
     </section>
     
     <section id="contact" class="section">
@@ -577,11 +700,11 @@
     </section>
     
     <footer class="footer">
-        <p>&copy; 2024 DualSoul Creations | Crafted with <i class="fas fa-heart" style="color: #c9a03d;"></i> by Kishore & Charan</p>
+        <p>&copy; 2024 DualSoul Creations | Crafted with <i class="fas fa-heart" style="color: var(--text-secondary);"></i> by Kishore & Charan</p>
     </footer>
     
     <script>
-        // Loader
+        // Enhanced Loader
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             setTimeout(() => {
@@ -589,7 +712,7 @@
                 setTimeout(() => {
                     loader.style.display = 'none';
                 }, 500);
-            }, 1000);
+            }, 800);
         });
         
         // Navbar scroll effect
@@ -615,9 +738,10 @@
                 navLinks.style.top = '70px';
                 navLinks.style.left = '0';
                 navLinks.style.right = '0';
-                navLinks.style.backgroundColor = '#0a0808';
+                navLinks.style.backgroundColor = 'var(--bg-primary)';
                 navLinks.style.padding = '2rem';
                 navLinks.style.gap = '1rem';
+                navLinks.style.zIndex = '999';
             }
         });
         
@@ -631,7 +755,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     if (window.innerWidth <= 768) {
                         navLinks.style.display = 'none';
                     }
@@ -639,38 +762,71 @@
             });
         });
         
-        // Load featured reels
-        const reelsData = [
-            {
-                url: 'https://www.instagram.com/reel/DVve6q5j86H/',
-                thumbnail: 'https://via.placeholder.com/400x400/2a241f/f5e6d3?text=Reel+1'
-            },
-            {
-                url: 'https://www.instagram.com/reel/DUlDTJOjwLr/',
-                thumbnail: 'https://via.placeholder.com/400x400/2a241f/f5e6d3?text=Reel+2'
-            },
-            {
-                url: 'https://www.instagram.com/reel/DWHEICaDyEe/',
-                thumbnail: 'https://via.placeholder.com/400x400/2a241f/f5e6d3?text=Reel+3'
+        // Animated Counters
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            let start = 0;
+            const increment = targetValue / (duration / 16);
+            const element = document.getElementById(elementId);
+            
+            const updateCounter = () => {
+                start += increment;
+                if (start < targetValue) {
+                    element.textContent = Math.floor(start).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetValue.toLocaleString();
+                }
+            };
+            
+            updateCounter();
+        }
+        
+        // Intersection Observer for counters
+        const counterSection = document.querySelector('.counter-section');
+        let countersStarted = false;
+        
+        const observerOptions = {
+            threshold: 0.3
+        };
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersStarted) {
+                    countersStarted = true;
+                    animateCounter('counter1', 12500, 2000);
+                    animateCounter('counter2', 87500, 2000);
+                    animateCounter('counter3', 45, 1500);
+                    animateCounter('counter4', 15800, 2000);
+                }
+            });
+        }, observerOptions);
+        
+        if (counterSection) {
+            counterObserver.observe(counterSection);
+        }
+        
+        // Dark/Light Mode Toggle
+        const themeToggle = document.createElement('button');
+        themeToggle.className = 'theme-toggle';
+        themeToggle.innerHTML = '🌙';
+        document.body.appendChild(themeToggle);
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeToggle.innerHTML = '☀️';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggle.innerHTML = '🌙';
+                localStorage.setItem('theme', 'dark');
             }
-        ];
-        
-        const reelsGrid = document.getElementById('reelsGrid');
-        reelsData.forEach(reel => {
-            const reelCard = document.createElement('div');
-            reelCard.className = 'reel-card';
-            reelCard.onclick = () => window.open(reel.url, '_blank');
-            reelCard.innerHTML = `
-                <img src="${reel.thumbnail}" alt="Dance Reel">
-                <div class="reel-overlay">
-                    <i class="fab fa-instagram"></i> Watch on Instagram
-                </div>
-            `;
-            reelsGrid.appendChild(reelCard);
         });
-        
-        // Note: For actual Instagram thumbnails, you would need to use Instagram's API or a service like EmbedSocial
-        // For now, we use placeholders but the links work perfectly
         
         // Add viewport height fix for mobile
         const setVH = () => {
@@ -679,6 +835,25 @@
         };
         setVH();
         window.addEventListener('resize', setVH);
+        
+        // Smooth reveal on scroll
+        const revealElements = document.querySelectorAll('.team-card, .contact-item, .counter-item');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObserver.observe(el);
+        });
     </script>
 </body>
 </html>
