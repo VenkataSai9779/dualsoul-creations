@@ -282,38 +282,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Counter Section */
-        .counter-section {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-        }
-
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .counter-item {
-            padding: 1rem;
-        }
-
-        .counter-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-secondary);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .counter-label {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            opacity: 0.8;
-        }
-
         /* Parallax Section */
         .parallax-section {
             background-attachment: fixed;
@@ -474,10 +442,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .counter-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .section {
                 padding: 3rem 1.5rem;
             }
@@ -591,30 +555,6 @@
                     <h3>Charan</h3>
                     <p>Co-founder & Creative Director</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">Specializes in freestyle and storytelling</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Animated Counters Section -->
-    <section class="section">
-        <div class="counter-section">
-            <div class="counter-grid">
-                <div class="counter-item">
-                    <div class="counter-number" id="counter1">0</div>
-                    <div class="counter-label">Instagram Followers</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" id="counter2">0</div>
-                    <div class="counter-label">Video Views</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" id="counter3">0</div>
-                    <div class="counter-label">Total Reels</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" id="counter4">0</div>
-                    <div class="counter-label">Happy Followers</div>
                 </div>
             </div>
         </div>
@@ -762,49 +702,6 @@
             });
         });
         
-        // Animated Counters
-        function animateCounter(elementId, targetValue, duration = 2000) {
-            let start = 0;
-            const increment = targetValue / (duration / 16);
-            const element = document.getElementById(elementId);
-            
-            const updateCounter = () => {
-                start += increment;
-                if (start < targetValue) {
-                    element.textContent = Math.floor(start).toLocaleString();
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = targetValue.toLocaleString();
-                }
-            };
-            
-            updateCounter();
-        }
-        
-        // Intersection Observer for counters
-        const counterSection = document.querySelector('.counter-section');
-        let countersStarted = false;
-        
-        const observerOptions = {
-            threshold: 0.3
-        };
-        
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !countersStarted) {
-                    countersStarted = true;
-                    animateCounter('counter1', 12500, 2000);
-                    animateCounter('counter2', 87500, 2000);
-                    animateCounter('counter3', 45, 1500);
-                    animateCounter('counter4', 15800, 2000);
-                }
-            });
-        }, observerOptions);
-        
-        if (counterSection) {
-            counterObserver.observe(counterSection);
-        }
-        
         // Dark/Light Mode Toggle
         const themeToggle = document.createElement('button');
         themeToggle.className = 'theme-toggle';
@@ -837,7 +734,7 @@
         window.addEventListener('resize', setVH);
         
         // Smooth reveal on scroll
-        const revealElements = document.querySelectorAll('.team-card, .contact-item, .counter-item');
+        const revealElements = document.querySelectorAll('.team-card, .contact-item');
         
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
